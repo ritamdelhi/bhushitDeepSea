@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #ecf0f1;
+      height: 100vh;
+    }
+
+    /* Background Video */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Content styling */
+    .content {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding-top: 150px;
+    }
+
+    .content h1 {
+      font-size: 3em;
+      font-weight: bold;
+      color: #e74c3c;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .content p {
+      font-size: 1.5em;
+      margin: 20px 0;
+      animation: fadeInUp 3s ease-in-out;
+    }
+
+    .info-section {
+      margin-top: 40px;
+      animation: fadeInUp 4s ease-in-out;
+    }
+
+    .info-section img {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      box-shadow: 0 0 15px rgba(255, 100, 0, 0.7);
+    }
+
+    .button {
+      background-color: #e74c3c;
+      color: white;
+      padding: 15px 25px;
+      font-size: 1.2em;
+      margin-top: 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      transition: transform 0.3s;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+      background-color: #c0392b;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Ocean Animations */
+    .bubble {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      pointer-events: auto;
+      animation: bubble-rise 6s infinite ease-out;
+    }
+
+    .bubble:hover {
+      animation: pop 0.5s forwards;
+      background: radial-gradient(circle, #ff4500, transparent);
+    }
+
+    @keyframes bubble-rise {
+      0% {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-300px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes pop {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html">Ocean Explorer</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="ocean-life.html">Ocean Life</a></li>
+        <li class="nav-item"><a class="nav-link" href="shipwrecks.html">Shipwrecks</a></li>
+        <li class="nav-item"><a class="nav-link" href="volcanoes.html">Volcanoes</a></li>
+        <li class="nav-item"><a class="nav-link active" href="about.html">About us</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Feedback</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Background Video -->
+  <video class="video-background" autoplay muted loop>
+    <source src="about.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Content Section -->
+  <div class="content">
+    <h1 class="animate__animated animate__fadeIn">About Bhushit Singhal</h1>
+    <p class="animate__animated animate__fadeInUp">Class 8 - Lancers Convent, Delhi</p>
+
+    <div class="info-section">
+      <img src="bhushit.jpeg" alt="Bhushit Singhal" class="animate__animated animate__fadeIn">
+      <p class="animate__animated animate__fadeInUp">Hello! I'm Bhushit Singhal, a passionate student at Lancers Convent, Delhi. I am in class 8, and I love exploring the mysteries of the ocean. The beauty and depth of ocean life fascinate me, and I hope to contribute to marine science in the future.</p>
+    </div>
+
+    <!-- Ocean Bubbles Animation -->
+    <div class="bubble" style="left: 20%; animation-delay: 0s;"></div>
+    <div class="bubble" style="left: 40%; animation-delay: 2s;"></div>
+    <div class="bubble" style="left: 60%; animation-delay: 4s;"></div>
+    <div class="bubble" style="left: 80%; animation-delay: 6s;"></div>
+
+    <button class="button animate__animated animate__fadeInUp" onclick="window.location.href='contact.html'">Get in Touch</button>
+  </div>
+
+  <script>
+    // Adding dynamic bubbles
+    const scene = document.querySelector('.content');
+  
+    // Add dynamic bubbles
+    for (let i = 0; i < 5; i++) {
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      bubble.style.left = `${Math.random() * 100}%`;
+      bubble.style.animationDelay = `${Math.random() * 5}s`;
+      scene.appendChild(bubble);
+    }
+  </script>
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

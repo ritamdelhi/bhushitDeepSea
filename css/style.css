@@ -1,0 +1,72 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #eef7fa;
+  color: #333;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  color: #004080;
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+/* Navigation */
+.navbar {
+  background-color: #004080;
+  animation: fadeInDown 1s;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+/* Jumbotron */
+.jumbotron {
+  background: url('../media/images/ocean-bg.jpg') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  animation: fadeIn 2s;
+}
+
+.jumbotron h1 {
+  font-size: 3.5rem;
+}
+
+.section {
+  padding: 40px 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+footer {
+  background-color: #004080;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}

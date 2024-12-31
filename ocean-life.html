@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Life</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #001f3f, #0074D9);
+            color: #ecf0f1;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 10px 20px;
+        }
+
+        .navbar-brand {
+            color: #f4d03f;
+            font-size: 1.5rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f4d03f;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            font-weight: bold;
+            color: #f39c12;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 30px;
+            color: #16a085;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-explore {
+            align-self:center;
+            background-color: #efa836;
+            color: rgb(4, 0, 0);
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            animation: bounce 2s infinite ease-in-out;
+            margin-bottom: 20px;
+        }
+
+        .btn-explore:hover {
+            background-color: #e67e22;
+            transform: scale(1.1);
+        }
+
+        .image-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .image-section img {
+            width: 30%;
+            margin: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .image-section img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Ocean Explorer</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="ocean-life.html">Ocean Life</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shipwrecks.html">Shipwrecks</a></li>
+                    <li class="nav-item"><a class="nav-link" href="volcanoes.html">Volcanoes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="animate__animated animate__fadeInDown">Explore the Mysteries of Ocean Life</h1>
+        <p>Oceans are home to a vast array of fascinating creatures and ecosystems. From colorful coral reefs to the deep sea, every part of the ocean is teeming with life. This page takes you on an exciting journey through the world beneath the waves.</p>
+
+        <h2 class="animate__animated animate__fadeInLeft">Underwater Plants</h2>
+        <p>Underwater plants play a vital role in marine ecosystems. They provide oxygen, serve as habitats for aquatic life, and help maintain water quality. Here are some fascinating examples:</p>
+
+        <div class="image-section">
+            <img src="co.jpg" alt="Seagrass" class="animate__animated animate__zoomIn" />
+            <img src="image.png" alt="Kelp Forest" class="animate__animated animate__zoomIn animate__delay-1s" />
+            <img src="coarl alge.jpg" alt="Coral Algae" class="animate__animated animate__zoomIn animate__delay-2s" />
+        </div>
+
+        <p>Seagrasses are flowering plants that grow in shallow waters and support marine animals. Kelp forests, made of large brown algae, create dense underwater jungles. Coral algae help coral reefs grow and thrive by providing essential nutrients.</p>
+
+        <h2 class="animate__animated animate__fadeInRight">Watch & Learn:</h2>
+        <video controls>
+            <source src="Under the sea_ Ocean animal moves [FREE RESOURCE].mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <h2 class="animate__animated animate__fadeInRight">Did You Know?</h2>
+        <p>About 70% of the Earth's surface is covered by oceans, and they produce more than half of the world's oxygen!</p>
+        <hr style="border: 0; height: 6px; background-color: #f4d03f;">
+
+    </br>
+        <button  class="btn-explore animate__animated animate__bounceIn" style="font-family: chiller; font-size: 30px;"><a href="quiz.html">Test Your Knowledge :-)</a></button>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

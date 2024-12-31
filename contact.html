@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+    body {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      margin-top: 50px;
+      animation: fadeInUp 1.5s ease-in-out;
+    }
+
+    .feedback-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .feedback-header h1 {
+      font-size: 2.5em;
+      font-weight: bold;
+    }
+
+    .feedback-header p {
+      font-size: 1.2em;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .form-control {
+      background-color: #34495e;
+      color: #ecf0f1;
+      border: 1px solid #ecf0f1;
+    }
+
+    .form-control:focus {
+      border-color: #e74c3c;
+      box-shadow: 0 0 5px rgba(231, 76, 60, 0.8);
+    }
+
+    .btn-submit {
+      background-color: #e74c3c;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .btn-submit:hover {
+      transform: scale(1.1);
+      background-color: #c0392b;
+    }
+
+    .stars {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .star {
+      font-size: 2em;
+      color: #ecf0f1;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .star:hover,
+    .star.selected {
+      color: #f1c40f;
+    }
+
+    .thank-you-message {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #27ae60;
+      animation: fadeIn 1s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Feedback Header -->
+    <div class="feedback-header">
+      <h1 class="animate__animated animate__fadeInDown">We Value Your Feedback</h1>
+      <p class="animate__animated animate__fadeInDown">Help us improve by sharing your thoughts!</p>
+    </div>
+
+    <!-- Star Rating -->
+    <div class="stars">
+      <span class="star" data-value="1">&#9733;</span>
+      <span class="star" data-value="2">&#9733;</span>
+      <span class="star" data-value="3">&#9733;</span>
+      <span class="star" data-value="4">&#9733;</span>
+      <span class="star" data-value="5">&#9733;</span>
+    </div>
+
+    <!-- Feedback Form -->
+    <form id="feedback-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="feedback">Feedback</label>
+        <textarea class="form-control" id="feedback" rows="4" placeholder="Write your feedback" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-submit">Submit</button>
+    </form>
+
+    <!-- Thank You Message -->
+    <div id="thank-you-message" class="thank-you-message">
+      <p>Thank you for your feedback! 🌟</p>
+    </div>
+  </div>
+
+  <script>
+    // Star Rating System
+    const stars = document.querySelectorAll('.star');
+    let selectedRating = 0;
+
+    stars.forEach((star, index) => {
+      star.addEventListener('click', () => {
+        selectedRating = index + 1;
+        stars.forEach((s, i) => {
+          if (i <= index) {
+            s.classList.add('selected');
+          } else {
+            s.classList.remove('selected');
+          }
+        });
+      });
+    });
+
+    // Feedback Form Submission
+    const form = document.getElementById('feedback-form');
+    const thankYouMessage = document.getElementById('thank-you-message');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      form.style.display = 'none';
+      thankYouMessage.style.display = 'block';
+    });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
