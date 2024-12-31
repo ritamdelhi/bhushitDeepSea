@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ocean Explorer - Home</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #004466;
+      color: #fff;
+      cursor: none;
+    }
+
+    .cursor {
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+    }
+
+    .cursor img {
+      width: 150%;
+      height: 150%;
+      animation: swim 1s infinite;
+    }
+
+    /* Swim animation for the fish */
+    @keyframes swim {
+      0% {
+        transform: translateY(0) rotate(180deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(-5deg);
+      }
+
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+    }
+
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .navbar-brand {
+      color: #f4d03f;
+    }
+
+    .navbar-nav .nav-link {
+      color: #fff;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #f4d03f;
+    }
+
+    .video-section {
+      position: relative;
+      height: 80vh;
+      overflow: hidden;
+    }
+
+    .video-section video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .video-section .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+    }
+
+    .video-section h1 {
+      font-size: 3em;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    .video-section p {
+      font-size: 1.2em;
+      color: #f4d03f;
+      margin-top: 10px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-animated {
+      margin-top: 20px;
+      background-color: #f4d03f;
+      color: #004466;
+      font-size: 1.2em;
+      padding: 10px 20px;
+      border-radius: 50px;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .btn-animated:hover {
+      transform: scale(1.1);
+      background-color: #ffdf76;
+    }
+
+    .animated-image {
+      width: 150px;
+      height: 150px;
+      margin: 10px;
+      animation: bounce 2s infinite ease-in-out;
+    }
+
+    .image-caption {
+      font-size: 1em;
+      color: #f4d03f;
+    }
+
+    .facts-section {
+      padding: 20px;
+      background-color: #003d66;
+      text-align: center;
+    }
+
+    .fact {
+      margin: 10px 0;
+      font-size: 1.2em;
+      color: #f4d03f;
+    }
+
+    .gallery-section {
+      padding: 20px;
+      text-align: center;
+      background-color: #002a4d;
+    }
+
+    .gallery-section img {
+      width: 200px;
+      height: 200px;
+      margin: 10px;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+
+    .gallery-section img:hover {
+      transform: scale(1.1);
+    }
+
+    .gallery-caption {
+      margin-top: 5px;
+      font-size: 1em;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <body>
+    <!-- Custom Cursor -->
+    <div class="cursor">
+      <img src="tropical_fish-removebg-preview.png" alt="Fish Cursor">
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Ocean Explorer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="ocean-life.html">Ocean Life</a></li>
+            <li class="nav-item"><a class="nav-link" href="shipwrecks.html">Shipwrecks</a></li>
+            <li class="nav-item"><a class="nav-link" href="volcanoes.html">Volcanoes</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Feedback</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Rest of the body content remains unchanged -->
+
+    <!-- Video Background Section -->
+    <div class="video-section">
+      <video autoplay muted loop>
+        <source src="Flying over Florida  Relaxing 4K Ocean Videos  Slowmo Overhead Waves.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="content animate__animated animate__fadeIn">
+        <h1>Welcome to the Ocean Explorer</h1>
+        <p>Discover the wonders of the ocean, shipwrecks, and marine biology</p>
+        <a href="#gallery" class="btn-animated">Explore More</a>
+      </div>
+    </div>
+    <!-- Image and Paragraph Section -->
+    <div class="container text-center mt-5">
+      <h2 class="animate__animated animate__fadeInUp">Explore the Ocean Life</h2>
+      <div class="row">
+        <!-- Tropical Fish -->
+        <div class="col-md-4">
+          <img src="bhu-removebg-preview.png" alt="Fish" class="animated-image animate__animated animate__zoomIn">
+          <p class="image-caption mt-2">Tropical Fish</p>
+          <p>The vibrant colors of tropical fish create a spectacular underwater display. These fish can be found in
+            coral reefs across the world.</p>
+        </div>
+
+        <!-- Colorful Corals -->
+        <div class="col-md-4">
+          <img src="coarl_color-removebg-preview.png" alt="Coral"
+            class="animated-image animate__animated animate__zoomIn">
+          <p class="image-caption mt-2">Colorful Corals</p>
+          <p>Corals are not just beautiful; they provide habitat and shelter to numerous marine species. Coral reefs are
+            the most diverse ecosystems on the planet.</p>
+        </div>
+
+        <!-- Underwater Plants -->
+        <div class="col-md-4">
+          <img src="under_water_plant-removebg-preview.png" alt="Seaweed"
+            class="animated-image animate__animated animate__zoomIn">
+          <p class="image-caption mt-2">Underwater Plants</p>
+          <p>Seaweed and underwater plants play a vital role in maintaining the marine ecosystem by producing oxygen and
+            providing food for marine creatures.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Facts Section -->
+    <div class="facts-section">
+      <h2>Did You Know?</h2>
+      <p class="fact">The ocean covers more than <span class="highlighted">70%</span> of Earth's surface!</p>
+      <p class="fact">Scientists estimate that <span class="highlighted">91%</span> of marine species are yet to be
+        discovered!</p>
+      <p class="fact">Shipwrecks are home to thousands of underwater organisms.</p>
+    </div>
+
+    <!-- Gallery Section -->
+    <div id="gallery" class="gallery-section">
+      <h2>Underwater Wonders</h2>
+      <div class="d-flex justify-content-center flex-wrap">
+        <div>
+          <img src="coarl reaf2.jpeg" alt="Coral Reef">
+          <p class="gallery-caption">Coral Reef</p>
+        </div>
+        <div>
+          <img src="images.jpg" alt="Deep Sea Creatures">
+          <p class="gallery-caption">Deep Sea Creatures</p>
+        </div>
+        <div>
+          <img src="sea turtle.jpeg" alt="Sea Turtles">
+          <p class="gallery-caption">Sea Turtles</p>
+        </div>
+        <div>
+          <img src="wh.webp" alt="Whales">
+          <p class="gallery-caption">Majestic Whales</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const cursor = document.querySelector('.cursor');
+
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+      });
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volcanoes - Ocean Explorer</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #2c3e50;
+      color: #ecf0f1;
+    }
+
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .navbar-brand {
+      color: #e74c3c;
+    }
+
+    .navbar-nav .nav-link {
+      color: #ecf0f1;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #e74c3c;
+    }
+
+    .header {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #34495e;
+      animation: fadeInDown 1.5s;
+    }
+
+    .header h1 {
+      font-size: 3em;
+      font-weight: bold;
+    }
+
+    .header p {
+      font-size: 1.2em;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .carousel img {
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .facts-section {
+      padding: 20px;
+      text-align: center;
+      background-color: #34495e;
+    }
+
+    .fact {
+      margin: 10px 0;
+      font-size: 1.2em;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .additional-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .btn-show-info {
+      margin-top: 20px;
+      background-color: #e74c3c;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .btn-show-info:hover {
+      transform: scale(1.1);
+    }
+
+    .additional-text {
+      display: none;
+      animation: fadeIn 1s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    .scene {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+      background: #298ff4;
+      margin-top: 30px;
+    }
+
+    .volcano-image {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: auto;
+      opacity: 0.9;
+      filter: drop-shadow(0 0 30px rgba(255, 100, 0, 0.8));
+    }
+
+    .lava {
+      position: absolute;
+      bottom: 30%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, #792203, rgba(255, 0, 0, 0.5));
+      border-radius: 50%;
+      transform: translate(-50%, 0);
+      animation: lava-erupt 3s infinite ease-in-out;
+    }
+
+    .bubble {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      pointer-events: auto;
+      animation: bubble-rise 5s infinite ease-out;
+    }
+
+    .bubble:hover {
+      animation: pop 0.5s forwards;
+      background: radial-gradient(circle, #ff4500, transparent);
+    }
+
+    @keyframes lava-erupt {
+      0%, 100% {
+        transform: translate(-50%, 0) scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: translate(-50%, -200px) scale(0.5);
+        opacity: 0.5;
+      }
+    }
+
+    @keyframes bubble-rise {
+      0% {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-300px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes pop {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Ocean Explorer</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="ocean-life.html">Ocean Life</a></li>
+          <li class="nav-item"><a class="nav-link" href="shipwrecks.html">Shipwrecks</a></li>
+          <li class="nav-item"><a class="nav-link active" href="volcanoes.html">Volcanoes</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Feedback</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <div class="header">
+    <h1>Underwater Volcanoes</h1>
+    <p>Explore the mysteries of volcanoes beneath the ocean surface!</p>
+  </div>
+
+  <!-- Carousel Section -->
+  <div class="container mt-5">
+    <h2 class="text-center mb-4 animate__animated animate__fadeInUp">Famous Underwater Volcanoes</h2>
+    <div id="volcanoCarousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#volcanoCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#volcanoCarousel" data-slide-to="1"></li>
+        <li data-target="#volcanoCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="1.jpg" class="d-block w-100" alt="Volcano 1">
+          <div class="carousel-caption">
+            <h5>Loihi Seamount</h5>
+            <p>An underwater volcano near Hawaii.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="1212.jpg" class="d-block w-100" alt="Volcano 2">
+          <div class="carousel-caption">
+            <h5>Axial Seamount</h5>
+            <p>The most studied underwater volcano in the world.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="123.jpg" class="d-block w-100" alt="Volcano 3">
+          <div class="carousel-caption">
+            <h5>Kick-'em-Jenny</h5>
+            <p>Located near the Caribbean, it’s still active.</p>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#volcanoCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#volcanoCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Facts Section -->
+  <div class="facts-section mt-5">
+    <h2 class="animate__animated animate__fadeInUp">Did You Know?</h2>
+    <p class="fact">Underwater volcanoes produce over 75% of the magma on Earth.</p>
+    <p class="fact">Hydrothermal vents near underwater volcanoes support unique ecosystems.</p>
+    <p class="fact">Some underwater volcanoes can grow to form new islands!</p>
+  </div>
+
+  <!-- Additional Info Section -->
+  <div class="additional-info">
+    <button class="btn-show-info" onclick="toggleInfo()">Learn More</button>
+    <div id="additional-text" class="additional-text mt-3">
+      <p>Underwater volcanoes are formed by tectonic activity. The heat from the magma supports life forms that thrive in extreme conditions, making them a hub for scientific research.</p>
+    </div>
+  </div>
+  <p style="font-size: 50px; font-family: chiller; font-weight: bolder; padding: 20px;">  Fun Animation:-)</p>
+  <!-- Volcano Animation Scene -->
+  <div class="scene">
+    <!-- Volcano Image -->
+    <img src="volcano.png" alt="Underwater Volcano" class="volcano-image">
+
+    <!-- Lava Eruption -->
+    <div class="lava" style="animation-delay: 0s;"></div>
+    <div class="lava" style="left: 48%; animation-delay: 0.5s;"></div>
+    <div class="lava" style="left: 52%; animation-delay: 1s;"></div>
+    <div class="lava" style="left: 50%; animation-delay: 1.5s;"></div>
+    <div class="lava" style="left: 49%; animation-delay: 2s;"></div>
+
+    <!-- Bubbles -->
+    <div class="bubble" style="left: 20%; animation-delay: 0s;"></div>
+    <div class="bubble" style="left: 40%; animation-delay: 1s;"></div>
+    <div class="bubble" style="left: 60%; animation-delay: 2s;"></div>
+    <div class="bubble" style="left: 80%; animation-delay: 3s;"></div>
+  </div>
+
+  <script>
+    // Adding dynamic bubbles and lava particles
+    const scene = document.querySelector('.scene');
+  
+    // Add dynamic bubbles
+    for (let i = 0; i < 10; i++) {
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      bubble.style.left = `${Math.random() * 100}%`;
+      bubble.style.animationDelay = `${Math.random() * 5}s`;
+      scene.appendChild(bubble);
+    }
+  
+    // Add dynamic lava particles
+    for (let i = 0; i < 20; i++) {
+      const lava = document.createElement('div');
+      lava.className = 'lava';
+      lava.style.left = `${48 + Math.random() * 4}%`; // Random horizontal spread
+      lava.style.animationDelay = `${Math.random() * 3}s`; // Random delay
+      lava.style.animationDuration = `${2 + Math.random()}s`; // Random speed
+      scene.appendChild(lava);
+    }
+  
+    // Function to toggle visibility of additional information
+    function toggleInfo() {
+      const info = document.getElementById('additional-text');
+      if (info.style.display === 'none' || !info.style.display) {
+        info.style.display = 'block';
+      } else {
+        info.style.display = 'none';
+      }
+    }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipwrecks | Lost Treasures of the Deep</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            color: #ecf0f1;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .navbar-brand {
+            color: #f4d03f;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f4d03f;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #f39c12;
+            font-size: 3rem;
+        }
+
+        h2 {
+            color: #16a085;
+            font-size: 2rem;
+        }
+
+        .container {
+            margin-top: 80px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .fact-box {
+            background: rgba(255, 255, 255, 0.1);
+            color: greenyellow;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+            border: 1px solid #f39c12;
+        }
+
+        .fact-box h3 {
+            color: #f39c12;
+        }
+
+        .btn-learn {
+            background-color: #f39c12;
+            color: green;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-learn:hover {
+            background-color: #e67e22;
+            transform: scale(1.1);
+        }
+
+        .image-container {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .animated-image {
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            border: 2px solid #f39c12;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .fact-box {
+            background: rgba(255, 255, 255, 0.1);
+            color: greenyellow;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+            border: 1px solid #f39c12;
+        }
+
+        .fact-box h3 {
+            color: #f39c12;
+        }
+
+        .btn-learn {
+            background-color: #f39c12;
+            color: green;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-learn:hover {
+            background-color: #e67e22;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Video Background -->
+    <video class="video-bg" autoplay loop muted>
+        <source src="Abstract Dark Sea Waves  4K Royalty free stock video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Ocean Explorer</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ocean-life.html">Ocean Life</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="shipwrecks.html">Shipwrecks</a></li>
+                    <li class="nav-item"><a class="nav-link" href="volcanoes.html">Volcanoes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shipwrecks Content -->
+    <div class="container">
+        <h1 class="animate__animated animate__fadeInDown">The Lost Treasures of Shipwrecks</h1>
+        <p class="text-center">Journey through time as we explore the mysteries and treasures hidden beneath the waves,
+            preserved in the wreckage of ships lost at sea.</p>
+
+        <h2 class="animate__animated animate__fadeInLeft">Famous Shipwrecks Around the World</h2>
+        <div class="image-container animate__animated animate__zoomIn">
+            <img src="wreck.jpg" alt="Shipwreck under the sea" class="animated-image">
+        </div>
+        <p>The world’s oceans are littered with shipwrecks, each with its own story of tragedy, discovery, and mystery.
+            From ancient Roman trading vessels to modern-day luxury liners, the ocean floor serves as a time capsule for
+            human history.</p>
+        <ul>
+            <li><strong>Titanic:</strong> The infamous luxury liner that sank in 1912 after striking an iceberg.</li>
+            <li><strong>SS Yongala:</strong> An Australian passenger ship lost to a cyclone in 1911, now a haven for
+                marine life.</li>
+            <li><strong>Antikythera Shipwreck:</strong> A Roman-era shipwreck that revealed the mysterious Antikythera
+                Mechanism, an ancient analog computer.</li>
+            <li><strong>Spanish Galleons:</strong> Ships loaded with gold and treasures, many lost during storms in the
+                16th and 17th centuries.</li>
+        </ul>
+
+        <h2 class="animate__animated animate__fadeInRight">Shipwreck Ecosystems</h2>
+        <div class="image-container animate__animated animate__fadeIn">
+            <img src="shipwreck-6609824_640.jpg" alt="Marine life around a shipwreck" class="animated-image">
+        </div>
+        <p>Over time, shipwrecks transform into artificial reefs, attracting a variety of marine life. Corals, sponges,
+            and anemones grow on the hulls, while fish, sharks, and other marine animals take refuge within the wrecks.
+            This natural transformation highlights the ocean's ability to recycle and repurpose human-made structures.
+        </p>
+    </div>
+    <div class="fact-box">
+        <h3>Did You Know?</h3>
+        <p>There are an estimated 3 million shipwrecks scattered across the world’s oceans, with only a fraction
+            explored and documented!</p>
+    </div>
+    <h2 class="text-center mt-5">Exploring the Titanic</h2>
+    <p style="color: #fa4141; font-weight: bolder;">The Titanic, resting nearly 13,000 feet beneath the Atlantic,
+        remains one of the most iconic shipwrecks. Its preservation tells a story of human ambition, tragedy, and
+        resilience. The wreck serves as a somber reminder of the lives lost, yet it also highlights advancements in
+        deep-sea exploration technology. Submersibles equipped with cameras and robotic arms have allowed us to study
+        the site in unprecedented detail.</p>
+    </div>
+
+    <!-- Interactive Quiz -->
+    <h2 class="text-center mt-5">Test Your Knowledge: Shipwreck Quiz</h2>
+    <div class="fact-box">
+        <h4>Question: What year did the Titanic sink?</h4>
+        <button class="btn-learn" onclick="alert('Correct! The Titanic sank in 1912.')">1912</button>
+        <button class="btn-learn" onclick="alert('Incorrect. Try again!')">1920</button>
+        <button class="btn-learn" onclick="alert('Incorrect. Try again!')">1905</button>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

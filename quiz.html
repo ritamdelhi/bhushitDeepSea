@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipwreck Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(120deg, #0d47a1, #42a5f5);
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .quiz-container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        #start-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .question {
+            font-size: 2rem;
+            margin: 20px 0;
+        }
+
+        .options button {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #f39c12;
+            color: white;
+        }
+
+        .options button:hover {
+            background-color: #e67e22;
+        }
+
+        .score, .timer {
+            position: absolute;
+            font-size: 1.5rem;
+            margin: 10px;
+        }
+
+        .timer {
+            top: 10px;
+            left: 10px;
+        }
+
+        .score {
+            top: 10px;
+            right: 10px;
+        }
+
+        #feedback {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #end-screen {
+            display: none;
+        }
+
+        .music-control {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="start-screen">
+        <h1>Welcome to the Quiz!</h1>
+        <button onclick="startQuiz()" class="btn btn-primary btn-lg">Start Quiz</button>
+    </div>
+
+    <div class="quiz-container" id="quiz-container" style="display: none;">
+        <div class="timer" id="timer">Time Left: 60</div>
+        <div class="score" id="score">Score: 0</div>
+        <div class="question" id="question">Loading question...</div>
+        <div class="options" id="options"></div>
+        <div id="feedback"></div>
+    </div>
+
+    <div id="end-screen">
+        <h1>Quiz Over!</h1>
+        <p id="final-score"></p>
+        <p>Incorrect Questions:</p>
+        <ul id="incorrect-summary"></ul>
+        <button onclick="location.reload()" class="btn btn-primary btn-lg">Restart Quiz</button>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="Between The Spaces - The Soundlings (1) - Copy.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+       const questions = [
+            {
+                question: "What year did the Titanic sink?",
+                options: ["1912", "1920", "1905", "1898"],
+                correct: "1912",
+                explanation: "The Titanic sank on April 15, 1912, after hitting an iceberg."
+            },
+            {
+                question: "Which shipwreck revealed the Antikythera Mechanism?",
+                options: ["Antikythera Shipwreck", "SS Yongala", "Titanic", "Endurance"],
+                correct: "Antikythera Shipwreck",
+                explanation: "The Antikythera Mechanism was discovered in the Antikythera Shipwreck."
+            },
+            {
+                question: "What caused the SS Yongala to sink?",
+                options: ["Iceberg", "Cyclone", "Pirates", "Fire"],
+                correct: "Cyclone",
+                explanation: "The SS Yongala sank during a cyclone in 1911 off the coast of Australia."
+            },
+            {
+                question: "Which shipwreck is known for the discovery of gold coins?",
+                options: ["Nuestra Señora de Atocha", "Lusitania", "Titanic", "Andrea Doria"],
+                correct: "Nuestra Señora de Atocha",
+                explanation: "The Atocha shipwreck revealed gold coins worth millions."
+            },
+            {
+                question: "Which ship sank in Lake Superior in 1975?",
+                options: ["Edmund Fitzgerald", "Endurance", "Carpathia", "Titanic"],
+                correct: "Edmund Fitzgerald",
+                explanation: "The Edmund Fitzgerald sank in Lake Superior during a storm in 1975."
+            },
+            {
+                question: "What year was the Mary Rose shipwreck discovered?",
+                options: ["1982", "1965", "1995", "1912"],
+                correct: "1982",
+                explanation: "The Mary Rose, a Tudor warship, was discovered in 1982."
+            },
+            {
+                question: "What type of ship was Endurance?",
+                options: ["Icebreaker", "Cargo Ship", "Warship", "Submarine"],
+                correct: "Icebreaker",
+                explanation: "Endurance was a polar icebreaker used in Shackleton's Antarctic expedition."
+            },
+            {
+                question: "Which shipwreck is associated with Shackleton?",
+                options: ["Endurance", "Discovery", "Lusitania", "Andrea Doria"],
+                correct: "Endurance",
+                explanation: "Endurance was Shackleton's ship that sank during his Antarctic expedition."
+            },
+            {
+                question: "Which ship was sunk by a German U-boat in 1915?",
+                options: ["Lusitania", "Titanic", "Britannic", "Queen Mary"],
+                correct: "Lusitania",
+                explanation: "The Lusitania was sunk by a German U-boat during World War I."
+            },
+            {
+                question: "Which shipwreck is located off the coast of India?",
+                options: ["Dwarka Shipwreck", "Endurance", "Titanic", "Mary Rose"],
+                correct: "Dwarka Shipwreck",
+                explanation: "The Dwarka Shipwreck is located in Indian waters near Gujarat."
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let incorrectQuestions = [];
+        let timeLeft = 60;
+        let timerInterval;
+
+        const questionElement = document.getElementById("question");
+        const optionsElement = document.getElementById("options");
+        const feedbackElement = document.getElementById("feedback");
+        const scoreElement = document.getElementById("score");
+        const timerElement = document.getElementById("timer");
+        const finalScoreElement = document.getElementById("final-score");
+        const incorrectSummaryElement = document.getElementById("incorrect-summary");
+
+        function startQuiz() {
+            document.getElementById("backgroundMusic").play();
+            document.getElementById("start-screen").style.display = "none";
+            document.getElementById("quiz-container").style.display = "block";
+            timerInterval = setInterval(updateTimer, 1000);
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+            optionsElement.innerHTML = "";
+            feedbackElement.textContent = "";
+            currentQuestion.options.forEach(option => {
+                const button = document.createElement("button");
+                button.textContent = option;
+                button.onclick = () => checkAnswer(option);
+                optionsElement.appendChild(button);
+            });
+        }
+
+        function checkAnswer(selectedOption) {
+            const currentQuestion = questions[currentQuestionIndex];
+            if (selectedOption === currentQuestion.correct) {
+                score++;
+                feedbackElement.textContent = `Correct! ${currentQuestion.explanation}`;
+                feedbackElement.style.color = "green";
+            } else {
+                incorrectQuestions.push({
+                    question: currentQuestion.question,
+                    selected: selectedOption,
+                    correct: currentQuestion.correct,
+                    explanation: currentQuestion.explanation
+                });
+                feedbackElement.textContent = `Incorrect! ${currentQuestion.explanation}`;
+                feedbackElement.style.color = "red";
+            }
+            scoreElement.textContent = `Score: ${score}`;
+            setTimeout(() => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    loadQuestion();
+                } else {
+                    endQuiz();
+                }
+            }, 2000);
+        }
+
+        function updateTimer() {
+            timeLeft--;
+            timerElement.textContent = `Time Left: ${timeLeft}`;
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                endQuiz();
+            }
+        }
+
+        function endQuiz() {
+            clearInterval(timerInterval);
+            document.getElementById("backgroundMusic").pause();
+            document.getElementById("quiz-container").style.display = "none";
+            document.getElementById("end-screen").style.display = "block";
+            finalScoreElement.textContent = `Your final score is ${score}.`;
+            incorrectQuestions.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = `${item.question} - You answered: "${item.selected}" (Correct: "${item.correct}") - ${item.explanation}`;
+                incorrectSummaryElement.appendChild(li);
+            });
+        }
+
+       
+    </script>
+</body>
+
+</html>
+
